@@ -1,0 +1,31 @@
+[global]
+frame_color = "#B4BEFE"
+separator_color = frame
+font = "Roboto 11"
+padding = 10
+frame_width = 1
+corner_radius = 10
+offset = 10x40
+transparency = 15
+gap_size = 5
+notification_limit = 3
+mouse_left_click = do_action, close_current
+mouse_middle_click = close_current
+mouse_right_click = close_all
+timeout = 7
+ignore_dbusclose = true
+
+[urgency_low]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_normal]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_critical]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
+
+
