@@ -3,3 +3,4 @@
 picom &
 nitrogen --restore &
 dunst &
+flameshot &

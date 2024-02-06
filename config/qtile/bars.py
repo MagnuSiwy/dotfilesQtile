@@ -1,6 +1,13 @@
 from libqtile import bar, widget
 from colors import *
 
+
+widget_defaults = dict(
+    font="Roboto",
+    fontsize=12,
+    padding=5,
+)
+
 mainBar = bar.Bar([
     widget.TextBox(
         text="\ue0b6",
