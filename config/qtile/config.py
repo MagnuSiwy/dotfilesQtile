@@ -7,7 +7,7 @@ from libqtile.lazy import lazy
 
 from bars import *
 from colors import *
-from shortcuts import *
+from keybinds import *
 
 
 groups = [Group(i) for i in "12345"]
