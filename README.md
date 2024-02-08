@@ -50,6 +50,6 @@ Hope you like it as a base for your own rice or even as a ready to go config. I'
 
 # Some ScreenShots
 
-![Screenshot](/screenshots/WholeFloating.jpg)
-![Screenshot](/screenshots/WholeEmpty.jpg)
-![Screenshot](/screenshots/WholeTiled.jpg)
+![Screenshot](/screenshots/WholeFloating.png)
+![Screenshot](/screenshots/WholeEmpty.png)
+![Screenshot](/screenshots/WholeTiled.png)
