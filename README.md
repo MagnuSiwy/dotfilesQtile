@@ -48,7 +48,7 @@ Hope you like it as a base for your own rice or even as a ready to go config. I'
  - [Tela Black Dark](https://github.com/vinceliuice/Tela-icon-theme) Icon theme
 
 
-# Some ScreenShots
+# Screenshots
 
 ![Screenshot](/screenshots/WholeFloating.png)
 ![Screenshot](/screenshots/WholeEmpty.png)
