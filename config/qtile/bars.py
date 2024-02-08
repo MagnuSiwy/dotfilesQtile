@@ -104,7 +104,6 @@ mainBar = bar.Bar([
         this_current_screen_border='#6C7086',
         highlight_method='block',
         rounded=True,
-        
     ),
     widget.TextBox(
         text="\ue0b4",
