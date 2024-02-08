@@ -46,3 +46,10 @@ Hope you like it as a base for your own rice or even as a ready to go config. I'
  - [Catppuccin](https://github.com/catppuccin) Mocha Lavender (GTK and QT/Kvantum)
  - [Bibata Original Classic](https://github.com/ful1e5/Bibata_Cursor) Cursor Theme
  - [Tela Black Dark](https://github.com/vinceliuice/Tela-icon-theme) Icon theme
+
+
+# Some ScreenShots
+
+![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeFloating.jpg)
+![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeEmpty.jpg)
+![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeTiled.jpg)
