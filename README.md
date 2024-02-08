@@ -50,6 +50,6 @@ Hope you like it as a base for your own rice or even as a ready to go config. I'
 
 # Some ScreenShots
 
-![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeFloating.jpg)
-![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeEmpty.jpg)
-![alt text](https://github.com/MagnuSiwy/dotfilesQtile/screenshots/WholeTiled.jpg)
+![Screenshot](/screenshots/WholeFloating.jpg)
+![Screenshot](/screenshots/WholeEmpty.jpg)
+![Screenshot](/screenshots/WholeTiled.jpg)
