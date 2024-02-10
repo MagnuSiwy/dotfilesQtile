@@ -9,6 +9,7 @@ from colors import colors
 from keybinds import *
 
 
+
 #----------------------------------------------------------------------------
 # Hooks and other functions
 #----------------------------------------------------------------------------
@@ -17,6 +18,7 @@ from keybinds import *
 def autostart():
     script = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.run([script])
+
 
 
 #----------------------------------------------------------------------------
@@ -62,6 +64,7 @@ floating_layout = layout.Floating(
 )
 
 
+
 #----------------------------------------------------------------------------
 # Screens settings
 #----------------------------------------------------------------------------
@@ -76,6 +79,7 @@ screens = [
 ]
 
 
+
 #----------------------------------------------------------------------------
 # Miscelanous settings
 #----------------------------------------------------------------------------
@@ -83,7 +87,7 @@ screens = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
-bring_front_click = "floating_only"
+bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
 auto_fullscreen = True
