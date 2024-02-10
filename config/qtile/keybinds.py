@@ -2,27 +2,30 @@ from libqtile.config import Key, Click, Drag
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from groups import *
+from groups import groups
 
 
+
+#----------------------------------------------------------------------------
+# Default apps and the mod key
+#----------------------------------------------------------------------------
 mod = "mod4"
-terminal = guess_terminal()
-browser = "firefox"
-fileMan = "dolphin"
-keys = []
+defaultApps = {
+    "terminal": guess_terminal(),
+    "browser": "firefox",
+    "fileMan": "dolphin",
+    "calendar": "calcurse",
+    "sound": "pavucontrol"
+}
 
 
-######################### Groups keybinds #########################
-for i in groups:
-    keys.extend([
-            Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
-            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
-            Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
-    ])
 
 
-######################### Keybinds for window management and opening apps #########################
-keys.extend([
+#----------------------------------------------------------------------------
+# Keybinds for window management and opening apps 
+#----------------------------------------------------------------------------
+    
+keys = [
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
@@ -45,12 +48,12 @@ keys.extend([
     Key([mod], "v", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod], "s", lazy.window.move_down(), desc="Bring the window down"),
     Key([mod], "w", lazy.window.move_up(), desc="Bring the window up"),
-    Key([mod], "q", lazy.window.move_to_top(), desc="Bring the window to top"),
-    Key([mod], "a", lazy.window.move_to_bottom(), desc="Bring the window to bottom"),
+    Key([mod], "q", lazy.window.move_to_top(), desc="Bring the window to the top"),
+    Key([mod], "a", lazy.window.move_to_bottom(), desc="Bring the window to the bottom"),
 
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn(browser), desc="Launch Firefox"),
-    Key([mod], "e", lazy.spawn(fileMan), desc="Launch Dolphin"),
+    Key([mod], "Return", lazy.spawn(defaultApps["terminal"]), desc="Launch the terminal"),
+    Key([mod], "f", lazy.spawn(defaultApps["browser"]), desc="Launch the browser"),
+    Key([mod], "e", lazy.spawn(defaultApps["fileMan"]), desc="Launch the file manager"),
     Key([mod, "shift"], "Print", lazy.spawn("flameshot gui"), desc="Choose the part of the screen for a screenshot"),
     Key([mod], "Print", lazy.spawn("flameshot screen"), desc="Screenshot of the entire screen"),
     Key([mod, "control"], "Print", lazy.spawn("flameshot full"), desc="Screenshot of all of the monitors"),
@@ -58,10 +61,27 @@ keys.extend([
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn('rofi -show drun -theme .config/rofi/config.rasi'), desc="Launch rofi menu"),
-])
+]
 
 
-######################### Drag floating layouts #########################
+
+#----------------------------------------------------------------------------
+# Groups keybinds 
+#----------------------------------------------------------------------------
+
+for i in groups:
+    keys.extend([
+            Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
+            Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
+    ])
+
+
+
+#----------------------------------------------------------------------------
+# Drag floating layouts
+#----------------------------------------------------------------------------
+
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),

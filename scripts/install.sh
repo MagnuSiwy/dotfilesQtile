@@ -1,4 +1,4 @@
-sudo pacman -S qtile picom nitrogen pacman-contrib rofi dunst kitty polkit-kde-agent pavucontrol firefox kvantum qt5ct
+sudo pacman -S qtile picom nitrogen pacman-contrib rofi dunst kitty polkit-kde-agent pavucontrol flameshot calcurse firefox kvantum qt5ct
 
 yay -S nwg-look tela-icon-theme bibata-cursor-theme catppuccin-gtk-theme-mocha
 

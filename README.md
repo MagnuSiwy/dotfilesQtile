@@ -1,4 +1,4 @@
-# dotfilesQtile (Arch)
+# dotfilesQtile (only for Arch based distros)
 Simple dotfiles for Qtile - Linux Tiling Window Manager. Made to look like Hyprland with the gaming experience of Xorg. **The config will only work with _Xorg_.**
 
 # Installation
@@ -26,6 +26,8 @@ In the _scripts_ folder you will also find `additional_apps.sh` script. This scr
  - kitty (terminal)
  - polkit-kde-agent (graphical authentication thingy - can be changed in autostart.sh)
  - nwg-look (GUI to set the GTK theme)
+ - flameshot (screenshot utility)
+ - calcurse (terminal calendar)
  - qt5ct, kvantum (GUI's to set the QT theme)
 
 

@@ -4,12 +4,14 @@ import subprocess
 from libqtile import layout, hook
 from libqtile.config import Match, Screen
 
-from bars import *
-from colors import *
+from bars import mainBar, secondBar
+from colors import colors
 from keybinds import *
 
 
-######################### Hooks and other functions #########################
+#----------------------------------------------------------------------------
+# Hooks and other functions
+#----------------------------------------------------------------------------
 
 @hook.subscribe.startup_once
 def autostart():
@@ -17,9 +19,10 @@ def autostart():
     subprocess.run([script])
 
 
-
-######################### Layout settings #########################
-
+#----------------------------------------------------------------------------
+# Layout settings
+#----------------------------------------------------------------------------
+    
 layoutTheme = {
     "border_focus": colors[-2], 
     "border_normal": colors[0], 
@@ -59,8 +62,9 @@ floating_layout = layout.Floating(
 )
 
 
-
-######################### Screens settings #########################
+#----------------------------------------------------------------------------
+# Screens settings
+#----------------------------------------------------------------------------
 
 screens = [
     Screen(
@@ -72,13 +76,14 @@ screens = [
 ]
 
 
-
-######################### Miscelanous settings #########################
+#----------------------------------------------------------------------------
+# Miscelanous settings
+#----------------------------------------------------------------------------
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = "floating_only"
 floats_kept_above = True
 cursor_warp = False
 auto_fullscreen = True

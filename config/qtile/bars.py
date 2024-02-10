@@ -1,244 +1,210 @@
 from libqtile import bar, widget, qtile
 from libqtile.lazy import lazy
 
-from colors import *
+from colors import colors
+from keybinds import defaultApps
 
 
-calendar = "calcurse"
-sound = "pavucontrol"
 
+#----------------------------------------------------------------------------
+# Defaults and recurring settings
+#----------------------------------------------------------------------------
 
 widget_defaults = dict(
     font="Roboto",
     fontsize=12,
     padding=5,
+    background=colors[0],
+    foreground=colors[1],
 )
+
+reversedColors = {
+    "background": colors[3],
+    "foreground": colors[0],
+}
+
+defaultRounding = {
+    **reversedColors,
+    "font": "Roboto Mono",
+    "fontsize": 17,
+    'padding': 0
+}
+
+leftRounding = {
+    "text": "\ue0b6",
+    **defaultRounding
+}
+
+rightRounding = {
+    "text": "\ue0b4",
+    **defaultRounding
+}
 
 barConfig = {
     "size":         24,
-    "background":   colors[-1],
     "margin":       [4, 6, 2, 6],
-    "border_width": [0, 0, 0, 0],  # Draw top and bottom borders
-    "border_color": [colors[-1], colors[-1], colors[-1], colors[-1]]  # Borders are magenta
+    "border_width": [0, 0, 0, 0],
+    "border_color": [colors[3], colors[3], colors[3], colors[3]],
+    **reversedColors
 }
 
 
+
+#----------------------------------------------------------------------------
+# Main bar template
+#----------------------------------------------------------------------------
+
 barWidgets = [
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.Clock(
-        background=colors[0],
-        foreground=colors[1],
-        format="   %d.%m.%Y",
-	    mouse_callbacks={"Button1": lazy.spawn("kitty" + calendar)}
+        format = "   %d.%m.%Y",
+	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])}
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.CPU(
-        background=colors[0],
-        foreground=colors[1],
-        format='   {load_percent}%',
-        update_interval=30.0
+        format = '   {load_percent}%',
+        update_interval = 30.0
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.Memory(
-        background=colors[0],
-        foreground=colors[1],
-        format='   {MemPercent}%',
-        update_interval=30.0
+        format = '   {MemPercent}%',
+        update_interval = 30.0
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.WindowName(
-        background=colors[-1],
-        foreground=colors[0],
-        format="{name}",
+        **reversedColors,
+        format = "{name}",
     ),
     widget.Spacer(
-        length=bar.STRETCH
+        **reversedColors,
+        length = bar.STRETCH
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.GroupBox(
-        background=colors[0],
-        foreground=colors[1],
-        spacing=6,
-        fontsize=14,
-        margin=3,
-        borderwidth=1,
-        inactive=colors[1],
-        active=colors[1],
-        this_current_screen_border='#6C7086',
-        highlight_method='block',
-        rounded=True,
+        spacing = 6,
+        fontsize = 14,
+        margin = 3,
+        borderwidth = 0,
+        inactive = colors[1],
+        active = colors[1],
+        this_current_screen_border = '#6C7086',
+        highlight_method = 'block',
+        rounded = True,
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=bar.STRETCH
+        **reversedColors,
+        length = bar.STRETCH
     ),
     widget.Systray(
-        
+        **reversedColors,
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.CheckUpdates(
-        background=colors[0],
-        foreground=colors[1],
-        distro='Arch_checkupdates',
-        display_format='!    {updates}',
-        no_update_string='',
-        update_interval=300,
+        distro = 'Arch_checkupdates',
+        display_format = '!    {updates}',
+        no_update_string = '',
+        update_interval = 300,
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.Volume(
-        background=colors[0],
-        foreground=colors[1],
-        emoji=True,
-        emoji_list=['', '', '', ''],
-        volume_app=sound,
+        emoji = True,
+        emoji_list = ['', '', '', ''],
+        volume_app = defaultApps["sound"],
     ),
     widget.Volume(
-        background=colors[0],
-        foreground=colors[1],
-        volume_app=sound,
+        volume_app = defaultApps["sound"],
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **leftRounding
     ),
     widget.Battery(
-        background=colors[0],
-        foreground=colors[1],
-        charge_char='',
-        full_char='',
-        not_charging_char='',
-        discharge_char='',
-        unknown_char='',
-        format="{char}     {percent: 2.0%}",
-        max_chars=0
+        charge_char = '',
+        full_char = '',
+        not_charging_char = '',
+        discharge_char = '',
+        unknown_char = '',
+        format = "{char}     {percent: 2.0%}",
+        max_chars = 0
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
+        **rightRounding
     ),
     widget.Spacer(
-        length=20
+        **reversedColors,
+        length = 20
     ),
     widget.TextBox(
-        text="\ue0b6",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0,
+        **leftRounding
     ),
     widget.Clock(
-        background=colors[0],
-        foreground=colors[1],
-        format="   %H:%M",
+        format = "   %H:%M",
     ),
     widget.TextBox(
-        text="\ue0b4",
-        font="Roboto Mono",
-        foreground=colors[0],
-        fontsize=17,
-        padding=0
-    )]
+        **rightRounding
+    )
+]
 
+
+
+#----------------------------------------------------------------------------
+# Declaration of bars
+#
+# System tray widget can be used only once
+# It has to be deleted from the second bar
+#----------------------------------------------------------------------------
 
 mainBar = bar.Bar(barWidgets, **barConfig)
 secondBar = bar.Bar(barWidgets[:18] + barWidgets[20:], **barConfig)
