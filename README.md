@@ -1,5 +1,8 @@
 # dotfilesQtile (only for Arch based distros)
-Simple dotfiles for Qtile - Linux Tiling Window Manager. Made to look like Hyprland with the gaming experience of Xorg. **The config will only work with _Xorg_.**
+Dotfiles for Qtile - Linux Tiling Window Manager. Made to look like Hyprland with the gaming experience of Xorg. **The config will only work with _Xorg_.**
+
+# If you have any suggestions...
+If you have any suggestions on what I could add to the project, let me know by for example, writing an issue. I will gladly add more functions, that people would like to see in this config. I've already tried addind bluetooth and wifi widgets but unfortunately wifi widget is kinda broken and it prints out an error every time I close qtile. Bluetooth widget works correctly but I couldn't add a bluetooth font awesome icon, because of the formating of the default text on the widget. I will probably try using _eww_ as a bar soon but the problem is, I would have to get rid of the system tray, since eww doesn't provide this widget. Thanks to all interested in the project, I really appreciate all of you 
 
 # Installation
 To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder (qtile included) (YOU HAVE TO INSTALL YAY  AND XORG.SERVER FIRST). Packages installed with pacman are what you need for most of the functionalities in the system to work + qt5ct and kvantum to change the qt theme. Yay installs some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
