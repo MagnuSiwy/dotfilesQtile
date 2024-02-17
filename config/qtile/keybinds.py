@@ -15,7 +15,8 @@ defaultApps = {
     "browser": "firefox",
     "fileMan": "dolphin",
     "calendar": "calcurse",
-    "sound": "pavucontrol"
+    "sound": "pavucontrol",
+    "wifi": "nm-connection-editor",
 }
 
 

@@ -47,18 +47,20 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class="lutris"),
         Match(wm_class="gnome-disks"),
-        Match(wm_class="prismlauncher"),
-        Match(wm_class="telegram-desktop"),
-        Match(wm_class="discord"),
-        Match(wm_class="epicgameslauncher.exe"),
+        Match(title="calcurse"),
         Match(wm_class="pavucontrol"),
-        Match(wm_class="caprine"),
+        Match(wm_class="nm-connection-editor"),
         Match(wm_class="blueman-manager"),
         Match(wm_class="amazon games ui.exe"),
-	Match(wm_class="steam"),
-	Match(wm_class="whatsdesk"),
+        Match(wm_class="steam"),
+        Match(wm_class="lutris"),
+        Match(wm_class="epicgameslauncher.exe"),
+        Match(wm_class="prismlauncher"),
+        Match(wm_class="telegram-desktop"),
+        Match(wm_class="whatsdesk"),
+        Match(wm_class="caprine"),
+        Match(wm_class="discord"),
     ],
     **layoutTheme
 )

@@ -21,6 +21,7 @@ In the _scripts_ folder you will also find `additional_apps.sh` script. This scr
 
 
 # Packages explained (apart from qtile and Xorg):
+ - qtile-extras (a package used for widget decorations)
  - picom (compositor)
  - nitrogen (wallpaper utility)
  - pacman-contrib (needed for checkupdates widget)
@@ -36,11 +37,11 @@ In the _scripts_ folder you will also find `additional_apps.sh` script. This scr
 
 # Some additional info
 The bar itself is divided into segments:
-LEFT: Calendar, CPU usage, RAM usage, Window name
+LEFT: Calendar, CPU usage, RAM usage, Updates Checker (pacman-contrib has to be installed), Window name
 MIDDLE: Workspaces
-RIGHT: system tray, checkupdates widget (pacman-contrib has to be installed), sound, battery, clock
+RIGHT: system tray, bluetooth, wifi, sound, battery, clock
 
-The sound widget opens the _pavucontrol_ app on mouse left click. You can change the volume with mouse scroll and mute the sound with right click.
+The sound widget opens the _pavucontrol_ app on mouse left click. You can change the volume with mouse scroll and mute the sound with right click. WiFi and bluetooth widgets work similarly. The first one opens _nm-connectino-editor_ and the second one opens _blueman-manager_ on left click.
 
 Terminal used is Kitty but can be changed to anything else thanks to qtile's guess_terminal().
 

@@ -1,5 +1,7 @@
-from libqtile import bar, widget, qtile
+from libqtile import bar
 from libqtile.lazy import lazy
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
 
 from colors import colors
 from keybinds import defaultApps
@@ -11,33 +13,19 @@ from keybinds import defaultApps
 #----------------------------------------------------------------------------
 
 widget_defaults = dict(
-    font="Roboto",
-    fontsize=12,
-    padding=5,
-    background=colors[0],
-    foreground=colors[1],
+    font = "Roboto",
+    fontsize = 12,
+    padding = 10,
+    background = colors[3],
+    foreground = colors[0],
 )
 
-reversedColors = {
-    "background": colors[3],
-    "foreground": colors[0],
-}
-
-defaultRounding = {
-    **reversedColors,
-    "font": "Roboto Mono",
-    "fontsize": 17,
-    'padding': 0
-}
-
-leftRounding = {
-    "text": "\ue0b6",
-    **defaultRounding
-}
-
-rightRounding = {
-    "text": "\ue0b4",
-    **defaultRounding
+widgetDecorations = {
+    "background": colors[0],
+    "foreground": colors[1],
+    "decorations": [
+        RectDecoration(use_widget_background = True, radius = 12, filled = True, group = True),
+    ],
 }
 
 barConfig = {
@@ -45,7 +33,7 @@ barConfig = {
     "margin":       [4, 6, 2, 6],
     "border_width": [0, 0, 0, 0],
     "border_color": [colors[3], colors[3], colors[3], colors[3]],
-    **reversedColors
+    "background": colors[3]
 }
 
 
@@ -55,120 +43,107 @@ barConfig = {
 #----------------------------------------------------------------------------
 
 barWidgets = [
-    widget.TextBox(
-        **leftRounding
-    ),
     widget.Clock(
-        format = "   %d.%m.%Y",
-	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])}
-    ),
-    widget.TextBox(
-        **rightRounding
+        format = "  %d.%m.%Y",
+	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
+        **widgetDecorations,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
-    ),
-    widget.TextBox(
-        **leftRounding
+        length = 15,
     ),
     widget.CPU(
         format = '   {load_percent}%',
-        update_interval = 30.0
-    ),
-    widget.TextBox(
-        **rightRounding
+        update_interval = 30.0,
+        **widgetDecorations,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
-    ),
-    widget.TextBox(
-        **leftRounding
+        length = 15,
     ),
     widget.Memory(
         format = '   {MemPercent}%',
-        update_interval = 30.0
-    ),
-    widget.TextBox(
-        **rightRounding
+        update_interval = 30.0,
+        **widgetDecorations
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
+        length = 15,
+    ),
+    widget.CheckUpdates(
+        distro = 'Arch_checkupdates',
+        display_format = '!    {updates}',
+        no_update_string = '    Updated',
+        update_interval = 300,
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 15,
     ),
     widget.WindowName(
-        **reversedColors,
         format = "{name}",
     ),
     widget.Spacer(
-        **reversedColors,
-        length = bar.STRETCH
-    ),
-    widget.TextBox(
-        **leftRounding
+        length = bar.STRETCH,
     ),
     widget.GroupBox(
         spacing = 6,
+        padding_x = 5,
+        margin_x = 10,
         fontsize = 14,
-        margin = 3,
         borderwidth = 0,
         inactive = colors[1],
         active = colors[1],
         this_current_screen_border = '#6C7086',
         highlight_method = 'block',
         rounded = True,
-    ),
-    widget.TextBox(
-        **rightRounding
+        **widgetDecorations,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = bar.STRETCH
+        length = bar.STRETCH,
     ),
     widget.Systray(
-        **reversedColors,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
+        length = 15,
     ),
-    widget.TextBox(
-        **leftRounding
-    ),
-    widget.CheckUpdates(
-        distro = 'Arch_checkupdates',
-        display_format = '!    {updates}',
-        no_update_string = '',
-        update_interval = 300,
-    ),
-    widget.TextBox(
-        **rightRounding
+    widget.Bluetooth(
+        default_text = "   {connected_devices}",
+        default_show_battery = True,
+        opacity = 0.85,
+        highlight_radius = 8,
+        menu_background = colors[0],
+        menu_border = colors[1],
+        menu_border_width = 2,
+        menu_foreground = colors[1],
+        menu_font = "Roboto",
+        menu_offset_y = 10,
+        **widgetDecorations  
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
+        length = 15,
     ),
-    widget.TextBox(
-        **leftRounding
+    widget.WiFiIcon(
+        mouse_callbacks={"Button1": lazy.spawn(defaultApps["wifi"])},
+        active_colour = colors[1],
+        show_ssid = True,
+        interface = "wlp4s0",
+        padding_y = 6,
+        update_interval = 5,
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 15,
     ),
     widget.Volume(
         emoji = True,
         emoji_list = ['', '', '', ''],
-        volume_app = defaultApps["sound"],
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
+        **widgetDecorations,
     ),
     widget.Volume(
         volume_app = defaultApps["sound"],
-    ),
-    widget.TextBox(
-        **rightRounding
+        **widgetDecorations,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
-    ),
-    widget.TextBox(
-        **leftRounding
+        length = 15,
     ),
     widget.Battery(
         charge_char = '',
@@ -176,25 +151,17 @@ barWidgets = [
         not_charging_char = '',
         discharge_char = '',
         unknown_char = '',
-        format = "{char}     {percent: 2.0%}",
-        max_chars = 0
-    ),
-    widget.TextBox(
-        **rightRounding
+        format = "{char} {percent: 2.0%}",
+        max_chars = 0,
+        **widgetDecorations,
     ),
     widget.Spacer(
-        **reversedColors,
-        length = 20
-    ),
-    widget.TextBox(
-        **leftRounding
+        length = 15,
     ),
     widget.Clock(
         format = "   %H:%M",
+        **widgetDecorations,
     ),
-    widget.TextBox(
-        **rightRounding
-    )
 ]
 
 
