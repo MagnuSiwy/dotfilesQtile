@@ -101,34 +101,22 @@ barWidgets = [
     ),
     widget.Systray(
     ),
-    widget.Spacer(
-        length = 15,
-    ),
-    widget.Bluetooth(
-        default_text = "   {connected_devices}",
-        default_show_battery = True,
-        opacity = 0.85,
-        highlight_radius = 8,
-        menu_background = colors[0],
-        menu_border = colors[1],
-        menu_border_width = 2,
-        menu_foreground = colors[1],
-        menu_font = "Roboto",
-        menu_offset_y = 10,
-        **widgetDecorations  
-    ),
-    widget.Spacer(
-        length = 15,
-    ),
-    widget.WiFiIcon(
-        mouse_callbacks={"Button1": lazy.spawn(defaultApps["wifi"])},
-        active_colour = colors[1],
-        show_ssid = True,
-        interface = "wlp4s0",
-        padding_y = 6,
-        update_interval = 5,
-        **widgetDecorations,
-    ),
+    # widget.Spacer(
+    #     length = 15,
+    # ),
+    # widget.Bluetooth(
+    #     default_text = "   {connected_devices}",
+    #     default_show_battery = True,
+    #     opacity = 0.85,
+    #     highlight_radius = 8,
+    #     menu_background = colors[0],
+    #     menu_border = colors[1],
+    #     menu_border_width = 2,
+    #     menu_foreground = colors[1],
+    #     menu_font = "Roboto",
+    #     menu_offset_y = 10,
+    #     **widgetDecorations  
+    # ),
     widget.Spacer(
         length = 15,
     ),
@@ -140,6 +128,18 @@ barWidgets = [
     ),
     widget.Volume(
         volume_app = defaultApps["sound"],
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 15,
+    ),
+    widget.WiFiIcon(
+        mouse_callbacks={"Button1": lazy.spawn(defaultApps["wifi"])},
+        active_colour = colors[1],
+        show_ssid = True,
+        interface = "wlp4s0",
+        padding_y = 6,
+        update_interval = 5,
         **widgetDecorations,
     ),
     widget.Spacer(
