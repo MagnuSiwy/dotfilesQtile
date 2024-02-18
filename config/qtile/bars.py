@@ -44,7 +44,7 @@ barConfig = {
 
 barWidgets = [
     widget.Clock(
-        format = "  %d.%m.%Y",
+        format = "   %d.%m.%Y",
 	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
         **widgetDecorations,
     ),
@@ -52,16 +52,16 @@ barWidgets = [
         length = 15,
     ),
     widget.CPU(
-        format = '   {load_percent}%',
-        update_interval = 30.0,
+        format = '    {load_percent}%',
+        update_interval = 5.0,
         **widgetDecorations,
     ),
     widget.Spacer(
         length = 15,
     ),
     widget.Memory(
-        format = '   {MemPercent}%',
-        update_interval = 30.0,
+        format = '    {MemPercent}%',
+        update_interval = 5.0,
         **widgetDecorations
     ),
     widget.Spacer(
@@ -71,7 +71,7 @@ barWidgets = [
         distro = 'Arch_checkupdates',
         display_format = '!    {updates}',
         no_update_string = '    Updated',
-        update_interval = 300,
+        update_interval = 30,
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -101,22 +101,6 @@ barWidgets = [
     ),
     widget.Systray(
     ),
-    # widget.Spacer(
-    #     length = 15,
-    # ),
-    # widget.Bluetooth(
-    #     default_text = "   {connected_devices}",
-    #     default_show_battery = True,
-    #     opacity = 0.85,
-    #     highlight_radius = 8,
-    #     menu_background = colors[0],
-    #     menu_border = colors[1],
-    #     menu_border_width = 2,
-    #     menu_foreground = colors[1],
-    #     menu_font = "Roboto",
-    #     menu_offset_y = 10,
-    #     **widgetDecorations  
-    # ),
     widget.Spacer(
         length = 15,
     ),
@@ -126,9 +110,33 @@ barWidgets = [
         mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations,
     ),
+    widget.Spacer(
+        length = -6,
+        padding = 0,
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
+        **widgetDecorations
+    ),
     widget.Volume(
-        volume_app = defaultApps["sound"],
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 15,
+    ),
+    widget.Bluetooth(
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
+        default_text = "   {num_connected_devices} {connected_devices}",
+        default_show_battery = True,
+        opacity = 0.85,
+        highlight_radius = 8,
+        menu_background = colors[0],
+        menu_border = colors[1],
+        menu_border_width = 2,
+        menu_foreground = colors[1],
+        menu_foreground_highlighted = colors[0],
+        menu_font = "Roboto",
+        menu_offset_y = 10,
+        **widgetDecorations  
     ),
     widget.Spacer(
         length = 15,
@@ -138,7 +146,7 @@ barWidgets = [
         active_colour = colors[1],
         show_ssid = True,
         interface = "wlp4s0",
-        padding_y = 6,
+        padding_y = 7,
         update_interval = 5,
         **widgetDecorations,
     ),
@@ -151,7 +159,7 @@ barWidgets = [
         not_charging_char = '',
         discharge_char = '',
         unknown_char = '',
-        format = "{char} {percent: 2.0%}",
+        format = "{char}    {percent: 2.0%}",
         max_chars = 0,
         **widgetDecorations,
     ),
@@ -174,4 +182,4 @@ barWidgets = [
 #----------------------------------------------------------------------------
 
 mainBar = bar.Bar(barWidgets, **barConfig)
-secondBar = bar.Bar(barWidgets[:18] + barWidgets[20:], **barConfig)
+# secondBar = bar.Bar(barWidgets, **barConfig)

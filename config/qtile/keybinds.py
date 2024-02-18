@@ -17,6 +17,7 @@ defaultApps = {
     "calendar": "calcurse",
     "sound": "pavucontrol",
     "wifi": "nm-connection-editor",
+    "bluetooth": "blueman-manager",
 }
 
 
