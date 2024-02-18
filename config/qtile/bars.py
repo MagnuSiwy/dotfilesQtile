@@ -49,7 +49,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.CPU(
         format = '    {load_percent}%',
@@ -57,7 +57,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.Memory(
         format = '    {MemPercent}%',
@@ -65,7 +65,7 @@ barWidgets = [
         **widgetDecorations
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.CheckUpdates(
         distro = 'Arch_checkupdates',
@@ -75,7 +75,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.WindowName(
         format = "{name}",
@@ -102,7 +102,7 @@ barWidgets = [
     widget.Systray(
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.Volume(
         emoji = True,
@@ -121,7 +121,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.Bluetooth(
         mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
@@ -139,7 +139,7 @@ barWidgets = [
         **widgetDecorations  
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.WiFiIcon(
         mouse_callbacks={"Button1": lazy.spawn(defaultApps["wifi"])},
@@ -151,7 +151,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.Battery(
         charge_char = '',
@@ -164,7 +164,7 @@ barWidgets = [
         **widgetDecorations,
     ),
     widget.Spacer(
-        length = 15,
+        length = 10,
     ),
     widget.Clock(
         format = "   %H:%M",
