@@ -4,3 +4,4 @@ picom &
 nitrogen --restore &
 dunst &
 flameshot &
+blueman-applet &
