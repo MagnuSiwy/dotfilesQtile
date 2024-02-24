@@ -3,12 +3,14 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from groups import groups
+from config import powerMenu
 
 
 
 #----------------------------------------------------------------------------
 # Default apps and the mod key
 #----------------------------------------------------------------------------
+
 mod = "mod4"
 defaultApps = {
     "terminal": guess_terminal(),
@@ -60,7 +62,7 @@ keys = [
     Key([mod, "control"], "Print", lazy.spawn("flameshot full"), desc="Screenshot of all of the monitors"),
 
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "control"], "q", lazy.function(powerMenu), desc="Show Power Menu"),
     Key([mod], "r", lazy.spawn('rofi -show drun -theme .config/rofi/config.rasi'), desc="Launch rofi menu"),
 ]
 

@@ -5,6 +5,7 @@ from qtile_extras.widget.decorations import RectDecoration
 
 from colors import colors
 from keybinds import defaultApps
+from config import powerMenu
 
 
 
@@ -43,24 +44,65 @@ barConfig = {
 #----------------------------------------------------------------------------
 
 barWidgets = [
-    widget.Clock(
-        format = "   %d.%m.%Y",
-	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+	    mouse_callbacks={"Button1": lazy.function(powerMenu)},
         **widgetDecorations,
     ),
     widget.Spacer(
         length = 10,
     ),
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
+        **widgetDecorations
+    ),
+    widget.Clock(
+        format = "%d.%m.%Y",
+	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " " + defaultApps["calendar"])},
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 10,
+    ),
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        **widgetDecorations
+    ),
     widget.CPU(
-        format = '    {load_percent}%',
+        format = '{load_percent}%',
         update_interval = 5.0,
         **widgetDecorations,
     ),
     widget.Spacer(
         length = 10,
     ),
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        **widgetDecorations
+    ),
     widget.Memory(
-        format = '    {MemPercent}%',
+        format = '{MemPercent}%',
         update_interval = 5.0,
         **widgetDecorations
     ),
@@ -68,9 +110,10 @@ barWidgets = [
         length = 10,
     ),
     widget.CheckUpdates(
+        font = 'Font Awesome 6 Free Regular',
         distro = 'Arch_checkupdates',
-        display_format = '!    {updates}',
-        no_update_string = '    Updated',
+        display_format = ' ! ',
+        no_update_string = '',
         update_interval = 30,
         **widgetDecorations,
     ),
@@ -105,46 +148,60 @@ barWidgets = [
         length = 10,
     ),
     widget.Volume(
+        font = "Font Awesome 6 Free Regular",
         emoji = True,
-        emoji_list = ['', '', '', ''],
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
+        emoji_list = ['', '', '', ''],
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations,
     ),
     widget.Spacer(
         length = -6,
         padding = 0,
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations
     ),
     widget.Volume(
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["sound"])},
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations,
     ),
     widget.Spacer(
         length = 10,
     ),
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+	    mouse_callbacks={"Button1": lazy.spawn(defaultApps["bluetooth"])},
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
+        **widgetDecorations
+    ),
     widget.Bluetooth(
         mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
-        default_text = "   {num_connected_devices} {connected_devices}",
+        default_text = "{num_connected_devices} {connected_devices}",
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.3,
         highlight_colour = colors[1],
-        highlight_radius = 8,
+        highlight_radius = 10,
         menu_background = colors[0],
         menu_border = colors[1],
         menu_border_width = 2,
         menu_foreground = colors[1],
         menu_foreground_highlighted = colors[0],
         menu_font = "Roboto",
-        menu_offset_y = 10,
+        menu_offset_x = -20,
+        menu_offset_y = 15,
         **widgetDecorations  
     ),
     widget.Spacer(
         length = 10,
     ),
     widget.WiFiIcon(
-        mouse_callbacks={"Button1": lazy.spawn(defaultApps["wifi"])},
+        mouse_callbacks={"Button3": lazy.spawn(defaultApps["wifi"])},
         active_colour = colors[1],
         show_ssid = True,
         interface = "wlp4s0",
@@ -156,20 +213,41 @@ barWidgets = [
         length = 10,
     ),
     widget.Battery(
-        charge_char = '',
-        full_char = '',
+        font = "Font Awesome 6 Free Regular",
         not_charging_char = '',
+        charge_char = '',
         discharge_char = '',
+        full_char = '',
+        empty_char = '',
         unknown_char = '',
-        format = "{char}    {percent: 2.0%}",
-        max_chars = 0,
+        format = "{char}",
+        show_short_text = False,
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -10,
+        padding = 0,
+        **widgetDecorations
+    ),
+    widget.Battery(
+        format = "{percent: 2.0%}",
         **widgetDecorations,
     ),
     widget.Spacer(
         length = 10,
     ),
+    widget.TextBox(
+        font = "Font Awesome 6 Free Regular",
+        fmt = "",
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        **widgetDecorations
+    ),
     widget.Clock(
-        format = "   %H:%M",
+        format = "%H:%M",
         **widgetDecorations,
     ),
 ]

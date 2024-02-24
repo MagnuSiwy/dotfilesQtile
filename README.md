@@ -38,11 +38,11 @@ In the _scripts_ folder you will also find `additional_apps.sh` script. This scr
 
 # Some additional info
 The bar itself is divided into segments:
- - LEFT: Calendar, CPU usage, RAM usage, Updates Checker (pacman-contrib has to be installed), Window name
+ - LEFT: PowerMenu, Calendar, CPU usage, RAM usage, Updates Checker (pacman-contrib has to be installed), Window name
  - MIDDLE: Workspaces
  - RIGHT: System Tray, Sound, Bluetooth, WiFi, Battery, Clock
 
-The sound widget opens the _pavucontrol_ app on mouse left click. You can change the volume with mouse scroll and mute the sound with right click. WiFi and bluetooth widgets work similarly. The first one opens _nm-connectino-editor_ and the second one opens _blueman-manager_ on left click.
+The sound widget opens the _pavucontrol_ app on mouse right click. You can change the volume with mouse scroll and mute the sound with left click. WiFi and bluetooth widgets work similarly. The first one opens _nm-connectino-editor_ on right click and the second one opens _blueman-manager_ on left click.
 
 Terminal used is Kitty but can be changed to anything else thanks to qtile's guess_terminal().
 
