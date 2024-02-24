@@ -60,3 +60,4 @@ Hope you like it as a base for your own rice or even as a ready to go config. I'
 ![Screenshot](/screenshots/NewBarWholeFloating.png)
 ![Screenshot](/screenshots/NewBarWholeEmpty.png)
 ![Screenshot](/screenshots/NewBarWholeTiled.png)
+![Screenshot](/screenshots/WholePowerMenu.png)

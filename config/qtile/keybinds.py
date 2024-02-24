@@ -3,7 +3,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from groups import groups
-from config import powerMenu
+from functions import powerMenu
 
 
 

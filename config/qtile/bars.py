@@ -5,7 +5,7 @@ from qtile_extras.widget.decorations import RectDecoration
 
 from colors import colors
 from keybinds import defaultApps
-from config import powerMenu
+from functions import powerMenu
 
 
 
