@@ -27,26 +27,35 @@ layouts = [
 floating_layout = layout.Floating(
     float_rules=[
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class="gnome-disks"),
-        Match(title="calcurse"),
-        Match(wm_class="pavucontrol"),
-        Match(wm_class="nm-connection-editor"),
-        Match(wm_class="blueman-manager"),
-        Match(wm_class="amazon games ui.exe"),
-        Match(wm_class="steam"),
-        Match(wm_class="lutris"),
-        Match(wm_class="epicgameslauncher.exe"),
-        Match(wm_class="prismlauncher"),
-        Match(wm_class="telegram-desktop"),
-        Match(wm_class="whatsdesk"),
-        Match(wm_class="caprine"),
-        Match(wm_class="discord"),
+        Match(wm_class = "confirmreset"),  # gitk
+        Match(wm_class = "makebranch"),  # gitk
+        Match(wm_class = "maketag"),  # gitk
+        Match(wm_class = "ssh-askpass"),  # ssh-askpass
+        Match(title = "branchdialog"),  # gitk
+        Match(title = "pinentry"),  # GPG key password entry
+
+        # System control
+        Match(wm_class = "pavucontrol"),
+        Match(wm_class = "nm-connection-editor"),
+        Match(wm_class = "blueman-manager"),
+        Match(wm_class = "gnome-disks"),
+
+        # Games
+        Match(wm_class = "amazon games ui.exe"),
+        Match(wm_class = "steam"),
+        Match(wm_class = "lutris"),
+        Match(wm_class = "epicgameslauncher.exe"),
+        Match(wm_class = "prismlauncher"),
+        
+        # Communication
+        Match(wm_class = "telegram-desktop"),
+        Match(wm_class = "whatsdesk"),
+        Match(wm_class = "caprine"),
+        Match(wm_class = "discord"),
+
+        # Other
+        Match(title = "Calendar"),
+        Match(title = "Available updates"),
     ],
     **layoutTheme
 )
@@ -59,10 +68,10 @@ floating_layout = layout.Floating(
 
 screens = [
     Screen(
-        top=mainBar,
+        top = mainBar,
     ),
     Screen(
-        #top=secondBar,
+        #top = secondBar,
     ),
 ]
 
