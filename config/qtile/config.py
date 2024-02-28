@@ -1,7 +1,7 @@
 from libqtile import layout
 from libqtile.config import Match, Screen
 
-from bars import widget_defaults, mainBar#, secondBar
+from bars import widget_defaults, mainBar, secondBar
 from colors import colors
 from keybinds import *
 from functions import *

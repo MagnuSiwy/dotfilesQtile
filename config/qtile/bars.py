@@ -115,6 +115,7 @@ barWidgets = [
         display_format = ' ! ',
         no_update_string = '',
         update_interval = 30,
+        mouse_callbacks = {"Button3": lazy.spawn("launch checkupdates")},
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -150,7 +151,7 @@ barWidgets = [
     widget.Volume(
         font = "Font Awesome 6 Free Regular",
         emoji = True,
-        emoji_list = ['', '', '', ''],
+        emoji_list = ['', '', '', ''],
         mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
         **widgetDecorations,
     ),
@@ -255,11 +256,12 @@ barWidgets = [
 
 
 #----------------------------------------------------------------------------
-# Declaration of bars
+# Declaration of the bars
 #
 # System tray widget can be used only once
 # It has to be deleted from the second bar
 #----------------------------------------------------------------------------
 
 mainBar = bar.Bar(barWidgets, **barConfig)
-# secondBar = bar.Bar(barWidgets, **barConfig)
+#secondBar = bar.Bar( [barWidgets[widget] for widget in list(range(20)) + [range(22, )] ], **barConfig)
+secondBar = bar.Bar(barWidgets[:20] + barWidgets[22:], **barConfig)

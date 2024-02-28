@@ -107,3 +107,8 @@ def powerMenu(qtile):
 def autostart():
     script = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([script])
+
+@hook.subscribe.screen_change
+def screen_change(event):
+    script = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
+    subprocess.run([script])
