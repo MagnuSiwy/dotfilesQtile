@@ -1,7 +1,8 @@
 #!/bin/bash
 
 picom &
-nitrogen --restore &
 dunst &
 flameshot &
 blueman-applet &
+
+sh ~/.config/qtile/scripts/monitors.sh

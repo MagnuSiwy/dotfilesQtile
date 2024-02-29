@@ -1,4 +1,4 @@
-sudo pacman -S --needed qtile picom nitrogen pacman-contrib rofi dunst kitty polkit-kde-agent pavucontrol nm-connection-editor bluez bluez-utils flameshot calcurse firefox kvantum qt5ct python-iwctl ttf-roboto otf-font-awesome
+sudo pacman -S --needed qtile picom pacman-contrib rofi dunst kitty polkit-kde-agent pavucontrol nm-connection-editor bluez bluez-utils flameshot calcurse firefox kvantum qt5ct python-iwctl ttf-roboto otf-font-awesome
 
 yay -S qtile-extras nwg-look tela-icon-theme bibata-cursor-theme catppuccin-gtk-theme-mocha blueman-git
 

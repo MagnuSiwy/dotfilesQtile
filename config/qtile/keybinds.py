@@ -61,6 +61,9 @@ keys = [
     Key([mod], "Print", lazy.spawn("flameshot screen"), desc="Screenshot of the entire screen"),
     Key([mod, "control"], "Print", lazy.spawn("flameshot full"), desc="Screenshot of all of the monitors"),
 
+    Key([mod], "comma", lazy.prev_screen(), desc="Change focus to the previous screen"),
+    Key([mod], "period", lazy.next_screen(), desc="Change focus to the next screen"),
+
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.function(powerMenu), desc="Show Power Menu"),
     Key([mod], "r", lazy.spawn('rofi -show drun -theme .config/rofi/config.rasi'), desc="Launch rofi menu"),
@@ -71,13 +74,6 @@ keys = [
 #----------------------------------------------------------------------------
 # Keybinds for groups
 #----------------------------------------------------------------------------
-
-# for i in groups:  
-#     keys.extend([
-#         Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
-#         Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
-#         Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
-#     ])
 
 for i in groups:  
     keys.extend([
