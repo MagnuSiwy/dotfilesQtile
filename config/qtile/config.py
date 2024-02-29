@@ -62,16 +62,20 @@ floating_layout = layout.Floating(
 # Screens settings
 #----------------------------------------------------------------------------
 
+wallpaperSettings = {
+    "wallpaper": "~/.config/wallpapers/wall.png",
+    "wallpaper_mode": "fill",
+}
+
+
 screens = [
     Screen(
         top = mainBar,
-        wallpaper = "~/.config/wallpapers/wall.png",
-        wallpaper_mode = "fill",
+        **wallpaperSettings,
     ),
     Screen(
         top = secondBar,
-        wallpaper = "~/.config/wallpapers/wall.png",
-        wallpaper_mode = "fill",
+        **wallpaperSettings,
     ),
 ]
 
