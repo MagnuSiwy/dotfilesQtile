@@ -5,7 +5,7 @@ from qtile_extras.widget.decorations import RectDecoration
 
 from colors import colors
 from keybinds import defaultApps
-from functions import powerMenu, spawnCalendar
+from functions import powerMenu
 
 
 
