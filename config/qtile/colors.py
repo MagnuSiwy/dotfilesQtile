@@ -7,13 +7,13 @@ transparent = "#00000000"
 catppuccin = [
     "#1e1e2e", #background
     "#cdd6f4", #foreground
-    "#b4befe", #borders
+    "#b4befe", #borders and groups
 ]
 
 dracula = [            
     "#282a36", #background
     "#f8f8f2", #foreground            
-    "#bd93f9", #borders
+    "#bd93f9", #borders and groups
 ]
 
 

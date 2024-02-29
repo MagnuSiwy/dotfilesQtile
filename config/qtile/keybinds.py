@@ -2,8 +2,8 @@ from libqtile.config import Key, Click, Drag
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from groups import groups
 from functions import powerMenu
+from groups import groups
 
 
 
@@ -69,14 +69,21 @@ keys = [
 
 
 #----------------------------------------------------------------------------
-# Groups keybinds 
+# Keybinds for groups
 #----------------------------------------------------------------------------
 
-for i in groups:
+# for i in groups:  
+#     keys.extend([
+#         Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
+#         Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
+#         Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
+#     ])
+
+for i in groups:  
     keys.extend([
-            Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
-            Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
-            Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
+        Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name)),
+        Key([mod, "control"], i.name, lazy.window.togroup(i.name), desc="Move focused window to group {}".format(i.name)),
     ])
 
 

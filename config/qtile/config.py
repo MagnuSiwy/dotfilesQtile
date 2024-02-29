@@ -71,7 +71,7 @@ screens = [
         top = mainBar,
     ),
     Screen(
-        #top = secondBar,
+        top = secondBar,
     ),
 ]
 
