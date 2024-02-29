@@ -12,7 +12,7 @@ from functions import *
 #----------------------------------------------------------------------------
     
 layoutTheme = {
-    "border_focus": colors[-2], 
+    "border_focus": colors[2], 
     "border_normal": colors[0], 
     "border_width": 2, 
     "margin": 3
