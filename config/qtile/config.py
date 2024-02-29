@@ -52,10 +52,6 @@ floating_layout = layout.Floating(
         Match(wm_class = "whatsdesk"),
         Match(wm_class = "caprine"),
         Match(wm_class = "discord"),
-
-        # Other
-        Match(title = "Calendar"),
-        Match(title = "Available updates"),
     ],
     **layoutTheme
 )

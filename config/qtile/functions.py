@@ -113,3 +113,10 @@ def autostart():
 def screen_change(event):
     script = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
     subprocess.run([script])
+
+@hook.subscribe.client_new
+def center_floating_win(window):
+    wm_name = window.cmd_inspect()["name"]
+    if wm_name == "Calendar" or wm_name == "Available updates":
+        window.toggle_floating()
+        window.cmd_set_size_floating(1000, 600)
