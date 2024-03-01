@@ -1,4 +1,4 @@
-from libqtile.config import Group
+from libqtile.config import Group, Match
 
 
 
@@ -7,9 +7,9 @@ from libqtile.config import Group
 #----------------------------------------------------------------------------
 
 groups = [
-    Group("1"),
-    Group("2"),
-    Group("3"),
+    Group("1",matches = [Match(wm_class = "code")]),
+    Group("2", matches = [Match(wm_class = "firefox")]),
+    Group("3", matches = [Match(wm_class = "spotify")]),
     Group("4"),
     Group("5"),
     Group("6"),

@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from libqtile import hook
+from libqtile import hook, qtile
 from libqtile.lazy import lazy
 from qtile_extras.popup.toolkit import PopupRelativeLayout, PopupImage, PopupText
 
@@ -107,12 +107,15 @@ def powerMenu(qtile):
 def autostart():
     script = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([script])
+    lazy.group[6].toscreen(1)
 
 
 @hook.subscribe.screen_change
 def screen_change(event):
     script = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
     subprocess.run([script])
+    lazy.group[6].toscreen(1)
+
 
 @hook.subscribe.client_new
 def center_floating_win(window):
@@ -120,3 +123,5 @@ def center_floating_win(window):
     if wm_name == "Calendar" or wm_name == "Available updates":
         window.toggle_floating()
         window.cmd_set_size_floating(1000, 600)
+    if wm_name == "Telegram":
+        window.cmd_set_size_floating(470, 620)
