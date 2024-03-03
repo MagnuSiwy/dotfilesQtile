@@ -1,3 +1,3 @@
-sudo pacman -S libreoffice-fresh gimp gnome-disk-utility spotify-launcher telegram-desktop
+sudo pacman -S libreoffice-fresh gimp gnome-disk-utility spotify-launcher telegram-desktop steam lutris discord caprine noto-fonts-emoji
 
-yay -S brave-bin visual-studio-code-bin whatsdesk-bin
+yay -S visual-studio-code-bin whatsdesk-bin

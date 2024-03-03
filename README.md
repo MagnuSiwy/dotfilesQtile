@@ -1,8 +1,10 @@
-# dotfilesQtile (only for Arch based distros)
-Dotfiles for Qtile - Linux Tiling Window Manager. Made to look like Hyprland with the gaming experience of Xorg. **The config will only work with _Xorg_.**
+# Dotfiles for Qtile Tiling Window Manager (only for Arch based distros)
+Made to look like Hyprland with the gaming experience (mostly on nvidia laptops) of Xorg. **The config will only work with _Xorg_.**
 
 # Installation
-To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder (qtile included) (YOU HAVE TO INSTALL YAY  AND XORG.SERVER FIRST). Packages installed with pacman are what you need for most of the functionalities in the system to work + qt5ct and kvantum to change the qt theme. Yay installs some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
+To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder (qtile NOT included since it's better to use git versions of these packages - might not work on qtile + qtile-extras v0.24.0) (YOU HAVE TO INSTALL YAY, QTILE-GIT AND XORG.SERVER FIRST). Packages installed with pacman are what you need for most of the functionalities in the system to work + qt5ct and kvantum to change the qt theme. Yay installs some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
+
+If you want to use the released qtile and qtile-extras packages, you have to duplicate the code for the bar to use it on the second monitor. Regular copy and deepcopy are not going to work.
 
 To get the WM to  work properly you need to copy/link the files to coresponding directories:
  - Insides of the _config_ folder => `~/.config/`
@@ -11,7 +13,7 @@ To get the WM to  work properly you need to copy/link the files to coresponding 
 To get catppuccin grub theme to work (with some changes I like - restart/shutdown buttons, changed position of the menu) you need to replicate these steps:
  - Place catppuccin-mocha theme folder in either `/boot/grub/themes/` or `/usr/share/grub/themes/`
  - Edit the theme in `/etc/default/grub/` file by adding a path to the `theme.txt` file from freshly moved _catppuccin-mocha_ folder
- - Move the `40_custom` file to `/etc/grub.d/` folder
+ - Move/copy/link the `40_custom` file to `/etc/grub.d/` folder
  - Update the grub
 
 In the _scripts_ folder you will also find `additional_apps.sh` script. This script will install some additional, not required, applicaitons that I like to use in my system.

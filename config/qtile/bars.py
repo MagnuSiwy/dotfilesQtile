@@ -7,6 +7,8 @@ from colors import colors
 from keybinds import defaultApps
 from functions import powerMenu
 
+import copy
+
 
 
 #----------------------------------------------------------------------------
@@ -181,7 +183,7 @@ mainBarWidgets = [
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.1,
-        highlight_colour = colors[1],
+        highlight_colour = colors[2],
         highlight_radius = 10,
         menu_background = colors[0],
         menu_border = colors[1],
@@ -206,7 +208,7 @@ mainBarWidgets = [
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.1,
-        highlight_colour = colors[1],
+        highlight_colour = colors[2],
         highlight_radius = 10,
         menu_background = colors[0],
         menu_border = colors[1],
@@ -406,7 +408,7 @@ secondBarWidgets = [
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.1,
-        highlight_colour = colors[1],
+        highlight_colour = colors[2],
         highlight_radius = 10,
         menu_background = colors[0],
         menu_border = colors[1],
@@ -431,7 +433,7 @@ secondBarWidgets = [
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.1,
-        highlight_colour = colors[1],
+        highlight_colour = colors[2],
         highlight_radius = 10,
         menu_background = colors[0],
         menu_border = colors[1],
@@ -508,4 +510,5 @@ secondBarWidgets = [
 #----------------------------------------------------------------------------
 
 mainBar = bar.Bar(mainBarWidgets, **barConfig)
+#secondBar = bar.Bar(mainBarWidgets[:20] + mainBarWidgets[22:], **barConfig)
 secondBar = bar.Bar(secondBarWidgets, **barConfig)

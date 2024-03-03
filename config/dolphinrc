@@ -1,0 +1,23 @@
+[General]
+ConfirmClosingMultipleTabs=false
+RememberOpenedTabs=false
+Version=202
+ViewPropsTimestamp=2024,1,27,17,8,51.51
+
+[IconsMode]
+PreviewSize=48
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[KPropertiesDialog]
+1920x1080 screen: Height=450
+1920x1080 screen: Width=425
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PreviewSettings]
+Plugins=ebookthumbnail,imagethumbnail,opendocumentthumbnail,windowsimagethumbnail,comicbookthumbnail,windowsexethumbnail,audiothumbnail,kraorathumbnail,cursorthumbnail,djvuthumbnail,appimagethumbnail,svgthumbnail,exrthumbnail,jpegthumbnail,directorythumbnail
