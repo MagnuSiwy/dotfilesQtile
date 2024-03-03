@@ -7,8 +7,6 @@ from colors import colors
 from keybinds import defaultApps
 from functions import powerMenu
 
-import copy
-
 
 
 #----------------------------------------------------------------------------
