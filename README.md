@@ -2,7 +2,7 @@
 Made to look like Hyprland with the gaming experience (mostly on nvidia laptops) of Xorg. **The config will only work with _Xorg_.**
 
 # Installation
-To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder (qtile NOT included since it's better to use git versions of these packages - might not work on qtile + qtile-extras v0.24.0) (YOU HAVE TO INSTALL YAY, QTILE-GIT AND XORG.SERVER FIRST). Packages installed with pacman are what you need for most of the functionalities in the system to work + qt5ct and kvantum to change the qt theme. Yay installs some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
+To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder (qtile is NOT included since it's better to use git versions of these packages - might not work on qtile + qtile-extras v0.24.0) (YOU HAVE TO INSTALL YAY, QTILE-GIT AND XORG.SERVER FIRST). Packages installed with pacman are what you need for most of the functionalities in the system to work + qt5ct and kvantum to change the qt theme. Yay installs some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
 
 If you want to use the released qtile and qtile-extras packages, you have to duplicate the code for the bar to use it on the second monitor. Regular copy and deepcopy are not going to work.
 
@@ -16,15 +16,17 @@ To get catppuccin grub theme to work (with some changes I like - restart/shutdow
  - Move/copy/link the `40_custom` file to `/etc/grub.d/` folder
  - Update the grub
 
+ You have to seperately install Roboto Mono Nerd Font, since it is used in the rofi config.
+
 In the _scripts_ folder you will also find `additional_apps.sh` script. This script will install some additional, not required, applicaitons that I like to use in my system.
 
 
 # Packages explained (apart from qtile and Xorg):
- - qtile-extras (a package used for widget decorations)
+ - qtile-extras (a package used for widget decorations and power menu)
  - picom (compositor)
  - nitrogen (wallpaper utility)
  - pacman-contrib (needed for checkupdates widget)
- - rofi (dmenu)
+ - rofi (dmenu - Roboto Mono Nerd Font needed)
  - dunst (notifications)
  - kitty (terminal)
  - polkit-kde-agent (graphical authentication thingy - can be changed in autostart.sh)
