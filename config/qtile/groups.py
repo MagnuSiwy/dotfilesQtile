@@ -7,8 +7,8 @@ from libqtile.config import Group, Match
 #----------------------------------------------------------------------------
 
 groups = [
-    Group("1",matches = [Match(wm_class = "code")]),
-    Group("2", matches = [Match(wm_class = "firefox")]),
+    Group("1",matches = [Match(wm_class = "code"), Match(wm_class = "lutris"), Match(wm_class = "steam")]),
+    Group("2", matches = [Match(wm_class = "firefox"), Match(wm_class = "telegram-desktop"), Match(wm_class = "discord"), Match(wm_class = "whatsdesk")]),
     Group("3", matches = [Match(wm_class = "spotify")]),
     Group("4"),
     Group("5"),

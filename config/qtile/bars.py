@@ -40,10 +40,11 @@ barConfig = {
 
 
 #----------------------------------------------------------------------------
-# Main bar template
+# Bar templates
 #----------------------------------------------------------------------------
 
-mainBarWidgets = [
+
+leftWidgets = [
     widget.TextBox(
         font = "Font Awesome 6 Free Regular",
         fmt = "",
@@ -127,6 +128,10 @@ mainBarWidgets = [
     widget.Spacer(
         length = bar.STRETCH,
     ),
+]
+
+
+middleWidgets = [
     widget.GroupBox(
         spacing = 6,
         padding_x = 5,
@@ -146,6 +151,29 @@ mainBarWidgets = [
         visible_groups = ["1", "2", "3", "4", "5"],
         **widgetDecorations,
     ),
+    widget.GroupBox(
+        spacing = 6,
+        padding_x = 5,
+        padding_y = 0,
+        margin_x = 10,
+        fontsize = 14,
+        borderwidth = 0,
+        inactive = colors[1],
+        active = colors[1],
+        block_highlight_text_color = colors[0],
+        this_current_screen_border = colors[2],
+        this_screen_border = colors[2],
+        other_current_screen_border = colors[3],
+        other_screen_border = colors[3],
+        highlight_method = 'block',
+        rounded = True,
+        visible_groups = ["6", "7", "8", "9", "0"],
+        **widgetDecorations,
+    ),
+]
+
+
+rightWidgets = [
     widget.Spacer(
         length = bar.STRETCH,
     ),
@@ -507,6 +535,6 @@ secondBarWidgets = [
 # It has to be deleted from the second bar
 #----------------------------------------------------------------------------
 
-mainBar = bar.Bar(mainBarWidgets, **barConfig)
-#secondBar = bar.Bar(mainBarWidgets[:20] + mainBarWidgets[22:], **barConfig)
+mainBar = bar.Bar(leftWidgets + middleWidgets[:1] + rightWidgets, **barConfig)
+#secondBar = bar.Bar(leftWidgets + middleWidgets[1:] + rightWidgets[:1] + rightWidgets[3:], **barConfig)
 secondBar = bar.Bar(secondBarWidgets, **barConfig)
