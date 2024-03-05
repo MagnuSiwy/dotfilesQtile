@@ -535,6 +535,5 @@ secondBarWidgets = [
 # It has to be deleted from the second bar
 #----------------------------------------------------------------------------
 
-mainBar = bar.Bar(leftWidgets + middleWidgets[:1] + rightWidgets, **barConfig)
-#secondBar = bar.Bar(leftWidgets + middleWidgets[1:] + rightWidgets[:1] + rightWidgets[3:], **barConfig)
-secondBar = bar.Bar(secondBarWidgets, **barConfig)
+mainBar = bar.Bar(leftWidgets + middleWidgets[:len(middleWidgets) // 2] + rightWidgets, **barConfig)
+secondBar = bar.Bar(leftWidgets + middleWidgets[len(middleWidgets) // 2:] + rightWidgets[:1] + rightWidgets[3:], **barConfig)
