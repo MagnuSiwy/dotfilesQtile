@@ -103,20 +103,6 @@ def powerMenu(qtile):
 # Hooks
 #----------------------------------------------------------------------------
 
-@hook.subscribe.startup_once
-def autostart():
-    script = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
-    subprocess.run([script])
-    lazy.group[6].toscreen(1)
-
-
-@hook.subscribe.screen_change
-def screen_change(event):
-    script = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
-    subprocess.run([script])
-    lazy.group[6].toscreen(1)
-
-
 @hook.subscribe.client_new
 def center_floating_win(window):
     wm_name = window.cmd_inspect()["name"]
@@ -125,3 +111,17 @@ def center_floating_win(window):
         window.cmd_set_size_floating(1000, 600)
     if wm_name == "Telegram":
         window.cmd_set_size_floating(470, 620)
+
+
+@hook.subscribe.screen_change
+def screen_change(event):
+    monitorScript = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
+    subprocess.run([monitorScript])
+
+
+@hook.subscribe.startup_once
+def autostart():
+    autostartScript = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
+    monitorScript = os.path.expanduser("~/.config/qtile/scripts/monitors.sh")
+    subprocess.run([autostartScript])
+    subprocess.run([monitorScript])
