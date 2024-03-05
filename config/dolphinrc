@@ -1,5 +1,7 @@
 [General]
 RememberOpenedTabs=false
+ShowSpaceInfo=false
+ShowZoomSlider=false
 Version=202
 ViewPropsTimestamp=2024,3,5,15,45,7.692
 
