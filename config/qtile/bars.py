@@ -110,6 +110,10 @@ leftWidgets = [
     widget.Spacer(
         length = 10,
     ),
+]
+
+
+secondSpecificWidgets = [
     widget.CheckUpdates(
         font = 'Font Awesome 6 Free Regular',
         distro = 'Arch_checkupdates',
@@ -127,29 +131,6 @@ leftWidgets = [
     ),
     widget.Spacer(
         length = bar.STRETCH,
-    ),
-]
-
-
-middleWidgets = [
-    widget.GroupBox(
-        spacing = 6,
-        padding_x = 5,
-        padding_y = 0,
-        margin_x = 10,
-        fontsize = 14,
-        borderwidth = 0,
-        inactive = colors[1],
-        active = colors[1],
-        block_highlight_text_color = colors[0],
-        this_current_screen_border = colors[2],
-        this_screen_border = colors[2],
-        other_current_screen_border = colors[3],
-        other_screen_border = colors[3],
-        highlight_method = 'block',
-        rounded = True,
-        visible_groups = ["1", "2", "3", "4", "5"],
-        **widgetDecorations,
     ),
     widget.GroupBox(
         spacing = 6,
@@ -170,204 +151,12 @@ middleWidgets = [
         visible_groups = ["6", "7", "8", "9", "0"],
         **widgetDecorations,
     ),
-]
-
-
-rightWidgets = [
     widget.Spacer(
         length = bar.STRETCH,
     ),
-    widget.Systray(
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.Volume(
-        font = "Font Awesome 6 Free Regular",
-        emoji = True,
-        emoji_list = ['', '', '', ''],
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -6,
-        padding = 0,
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
-        **widgetDecorations
-    ),
-    widget.Volume(
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.Bluetooth(
-        font = "Font Awesome 6 Free Regular",
-	    mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
-        default_text = "",
-        default_show_battery = True,
-        opacity = 0.85,
-        hide_after = 0.1,
-        highlight_colour = colors[2],
-        highlight_radius = 10,
-        menu_background = colors[0],
-        menu_border = colors[1],
-        menu_border_width = 2,
-        menu_foreground = colors[1],
-        menu_foreground_highlighted = colors[0],
-        menu_font = "Roboto",
-        menu_offset_x = -20,
-        menu_offset_y = 15,
-        **widgetDecorations  
-    ),
-    widget.Spacer(
-        length = -8,
-        padding = 0,
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
-        **widgetDecorations
-    ),
-    widget.Bluetooth(
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
-        adapter_format = "{name}",
-        default_text = '{num_connected_devices} {connected_devices}',
-        default_show_battery = True,
-        opacity = 0.85,
-        hide_after = 0.1,
-        highlight_colour = colors[2],
-        highlight_radius = 10,
-        menu_background = colors[0],
-        menu_border = colors[1],
-        menu_border_width = 2,
-        menu_foreground = colors[1],
-        menu_foreground_highlighted = colors[0],
-        menu_font = "Roboto",
-        menu_offset_x = -20,
-        menu_offset_y = 15,
-        **widgetDecorations  
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.WiFiIcon(
-        mouse_callbacks={"Button3": lazy.spawn(defaultApps["wifi"])},
-        active_colour = colors[1],
-        show_ssid = True,
-        interface = "wlp4s0",
-        padding_y = 7,
-        update_interval = 5,
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.Battery(
-        font = "Font Awesome 6 Free Regular",
-        not_charging_char = '',
-        charge_char = '',
-        discharge_char = '',
-        full_char = '',
-        empty_char = '',
-        unknown_char = '',
-        format = "{char}",
-        show_short_text = False,
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -10,
-        padding = 0,
-        **widgetDecorations
-    ),
-    widget.Battery(
-        format = "{percent: 2.0%}",
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.TextBox(
-        font = "Font Awesome 6 Free Regular",
-        fmt = "",
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -8,
-        padding = 0,
-        **widgetDecorations
-    ),
-    widget.Clock(
-        format = "%H:%M",
-        **widgetDecorations,
-    ),
 ]
 
-
-secondBarWidgets = [
-    widget.TextBox(
-        font = "Font Awesome 6 Free Regular",
-        fmt = "",
-	    mouse_callbacks={"Button1": lazy.function(powerMenu)},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.TextBox(
-        font = "Font Awesome 6 Free Regular",
-        fmt = "",
-	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -8,
-        padding = 0,
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
-        **widgetDecorations
-    ),
-    widget.Clock(
-        format = "%d.%m.%Y",
-	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.TextBox(
-        font = "Font Awesome 6 Free Regular",
-        fmt = "",
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -8,
-        padding = 0,
-        **widgetDecorations
-    ),
-    widget.CPU(
-        format = '{load_percent}%',
-        update_interval = 5.0,
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.TextBox(
-        font = "Font Awesome 6 Free Regular",
-        fmt = "",
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = -8,
-        padding = 0,
-        **widgetDecorations
-    ),
-    widget.Memory(
-        format = '{MemPercent}%',
-        update_interval = 5.0,
-        **widgetDecorations
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
+mainSpecificWidgets = [
     widget.CheckUpdates(
         font = 'Font Awesome 6 Free Regular',
         distro = 'Arch_checkupdates',
@@ -392,21 +181,31 @@ secondBarWidgets = [
         padding_y = 0,
         margin_x = 10,
         fontsize = 14,
+        borderwidth = 0,
         inactive = colors[1],
         active = colors[1],
         block_highlight_text_color = colors[0],
-        this_current_screen_border = colors[1],
-        this_screen_border = colors[1],
+        this_current_screen_border = colors[2],
+        this_screen_border = colors[2],
         other_current_screen_border = colors[3],
         other_screen_border = colors[3],
         highlight_method = 'block',
         rounded = True,
-        visible_groups = ["6", "7", "8", "9", '0'],
+        visible_groups = ["1", "2", "3", "4", "5"],
         **widgetDecorations,
     ),
     widget.Spacer(
         length = bar.STRETCH,
     ),
+    widget.Systray(
+    ),
+    widget.Spacer(
+        length = 10,
+    ),
+]
+
+
+rightWidgets = [
     widget.Volume(
         font = "Font Awesome 6 Free Regular",
         emoji = True,
@@ -535,5 +334,5 @@ secondBarWidgets = [
 # It has to be deleted from the second bar
 #----------------------------------------------------------------------------
 
-mainBar = bar.Bar(leftWidgets + middleWidgets[:len(middleWidgets) // 2] + rightWidgets, **barConfig)
-secondBar = bar.Bar(leftWidgets + middleWidgets[len(middleWidgets) // 2:] + rightWidgets[:1] + rightWidgets[3:], **barConfig)
+mainBar = bar.Bar(leftWidgets + mainSpecificWidgets + rightWidgets, **barConfig)
+secondBar = bar.Bar(leftWidgets + secondSpecificWidgets + rightWidgets, **barConfig)
