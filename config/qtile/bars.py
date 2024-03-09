@@ -5,7 +5,7 @@ from qtile_extras.widget.decorations import RectDecoration
 
 from colors import colors
 from keybinds import defaultApps
-from functions import powerMenu
+from functions import powerMenu, brightnessControl
 
 
 
@@ -156,6 +156,7 @@ secondSpecificWidgets = [
     ),
 ]
 
+
 mainSpecificWidgets = [
     widget.CheckUpdates(
         font = 'Font Awesome 6 Free Regular',
@@ -287,6 +288,7 @@ rightWidgets = [
     ),
     widget.Battery(
         font = "Font Awesome 6 Free Regular",
+        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
         not_charging_char = '',
         charge_char = '',
         discharge_char = '',
@@ -300,10 +302,12 @@ rightWidgets = [
     widget.Spacer(
         length = -10,
         padding = 0,
+        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
         **widgetDecorations
     ),
     widget.Battery(
         format = "{percent: 2.0%}",
+        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
         **widgetDecorations,
     ),
     widget.Spacer(
