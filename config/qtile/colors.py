@@ -8,14 +8,14 @@ catppuccin = [
     "#1e1e2e", #background
     "#cdd6f4", #foreground
     "#b4befe", #borders and groups
-    "#596390", #groupbox second monitor box
+    "#596390", #groupbox and highlights
 ]
 
 dracula = [            
     "#282a36", #background
     "#f8f8f2", #foreground            
     "#bd93f9", #borders and groups
-    "#815FBD", #groupbox second monitor box
+    "#815FBD", #groupbox and highlights
 ]
 
 

@@ -1,4 +1,5 @@
 [General]
+ConfirmClosingMultipleTabs=false
 RememberOpenedTabs=false
 ShowSpaceInfo=false
 ShowZoomSlider=false

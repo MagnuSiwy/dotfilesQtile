@@ -39,7 +39,7 @@ textDefaults = {
 layoutDefaults = {
     "border_width": 2,
     "border": colors[1],
-    "background": colors[0] + "95",
+    "background": colors[0],
     "hide_on_mouse_leave": True,
 }
 
@@ -119,6 +119,7 @@ def powerMenu(qtile):
         height = 200,
         controls = controls,
         initial_focus = 1,
+        opacity = 0.8,
         **layoutDefaults,
     )
 
@@ -174,6 +175,7 @@ def brightnessControl(qtile):
         height = 40,
         controls = controls,
         initial_focus = None,
+        opacity = 0.85,
         **layoutDefaults,
     )
 
