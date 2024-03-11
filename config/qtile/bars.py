@@ -13,13 +13,14 @@ from functions import powerMenu, brightnessControl
 # Defaults and recurring settings
 #----------------------------------------------------------------------------
 
-widget_defaults = dict(
-    font = "Roboto",
-    fontsize = 12,
-    padding = 10,
-    background = colors[-1],
-    foreground = colors[0],
-)
+widget_defaults = {
+    "font": "Roboto",
+    "fontsize": 12,
+    "padding": 10,
+    "background": colors[-1],
+    "foreground": colors[0],
+}
+
 
 widgetDecorations = {
     "background": colors[0],
@@ -28,6 +29,7 @@ widgetDecorations = {
         RectDecoration(use_widget_background = True, radius = 12, filled = True, group = True),
     ],
 }
+
 
 barConfig = {
     "size":         24,

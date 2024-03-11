@@ -12,11 +12,8 @@ from colors import colors
 # Defaults and constants
 #----------------------------------------------------------------------------
 
-# You need to change these values according to your setup. First parameter is
-# the x resolution of your monitor. The second one is the name of your monitor in xrandr.
-# You can check that using "xrandr --listmonitors" 
+# Change the SCREEN_NAME to your monitor's name
 
-SCREEN_WIDTH = 1920
 SCREEN_NAME = "eDP-1"
 
 
@@ -145,7 +142,7 @@ def brightnessControl(qtile):
             height = 0.5,
             **imageDefaults,
             highlight = colors[3],
-            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.5")},
+            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.5"), "Button3": lazy.spawn("kitty --hold echo " + str(qtile.current_screen))},
         ),
         PopupImage(
             filename = "~/.config/qtile/images/circle-half.svg",
@@ -179,7 +176,7 @@ def brightnessControl(qtile):
         **layoutDefaults,
     )
 
-    layout.show(x = SCREEN_WIDTH - layout._width - 25, y = 9, relative_to_bar = True)
+    layout.show(x = -25, y = 13, relative_to = 3, relative_to_bar = True)
 
 
 
