@@ -46,7 +46,7 @@ floating_layout = layout.Floating(
         Match(wm_class = "lutris"),
         Match(wm_class = "epicgameslauncher.exe"),
         Match(wm_class = "prismlauncher"),
-        Match(wm_class = "riot client.exe"),
+        Match(wm_class = "leagueclientux.exe"),
         
         # Communication
         Match(wm_class = "telegram-desktop"),
