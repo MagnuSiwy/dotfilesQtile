@@ -12,7 +12,8 @@ secondMonitor=$(xrandr | grep "connected" | head -n ${whichIsSecond} | tail -n 1
 
 if [ $(xrandr | grep " connected" | wc -l) -ge 2 ]
 then
-    xrandr --output "${secondMonitor}" --mode 1920x1080 --rate 60.00 --right-of "${primaryMonitor}"
+    xrandr --output "${primaryMonitor}" --brightness "$1"
+    xrandr --output "${secondMonitor}" --brightness "$1"
 else
-    xrandr --output "${secondMonitor}" --off
+    xrandr --output "${primaryMonitor}" --brightness "$1"
 fi

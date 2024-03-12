@@ -3,18 +3,23 @@ import subprocess
 
 from libqtile import hook
 from libqtile.lazy import lazy
-from qtile_extras.popup.toolkit import PopupRelativeLayout, PopupImage, PopupText, PopupSlider
+from qtile_extras.popup.toolkit import PopupRelativeLayout, PopupImage, PopupText
 
 from colors import colors
 
 
 #----------------------------------------------------------------------------
-# Defaults and constants
+# Defaults
 #----------------------------------------------------------------------------
 
-# Change the SCREEN_NAME to your monitor's name
+# Change if you want to choose your own brightness levels for brightness popup 
+# It MUST be a string
 
-SCREEN_NAME = "eDP-1"
+brightnessLevels = [
+    "0.5",
+    "0.7",
+    "1.0",
+]
 
 
 imageDefaults = {
@@ -45,6 +50,11 @@ layoutDefaults = {
 #----------------------------------------------------------------------------
 # Functions
 #----------------------------------------------------------------------------
+
+def changeBrightness(qtile, brightnessPercentage:str = "1.0"):
+    brightnessScript = os.path.expanduser("~/.config/qtile/scripts/brightness.sh")
+    subprocess.run([brightnessScript, brightnessPercentage])
+
 
 def powerMenu(qtile):
     controls = [
@@ -142,7 +152,7 @@ def brightnessControl(qtile):
             height = 0.5,
             **imageDefaults,
             highlight = colors[3],
-            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.5")},
+            mouse_callbacks = {"Button1": lazy.function(changeBrightness, brightnessLevels[0])},
         ),
         PopupImage(
             filename = "~/.config/qtile/images/circle-half.svg",
@@ -152,7 +162,7 @@ def brightnessControl(qtile):
             height = 0.5,
             **imageDefaults,
             highlight = colors[3],
-            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.75")},
+            mouse_callbacks = {"Button1": lazy.function(changeBrightness, brightnessLevels[1])},
         ),
         PopupImage(
             filename = "~/.config/qtile/images/circle-solid.svg",
@@ -162,7 +172,7 @@ def brightnessControl(qtile):
             height = 0.5,
             **imageDefaults,
             highlight = colors[3],
-            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 1.0")},
+            mouse_callbacks = {"Button1": lazy.function(changeBrightness, brightnessLevels[2])},
         ),
     ]
 
