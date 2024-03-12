@@ -2,9 +2,9 @@
 
 if [ "$#" -ne 1 ]
 then
-    echo "Wrong number of arguments"
+    echo "Invalid number of parameters"
+    exit 1
 fi
-
 
 # Change this to the position of your monitor in xrandr
 # eg. In my xrandr output it's:
