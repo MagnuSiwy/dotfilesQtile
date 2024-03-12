@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$#" -ne 1 ]; then
+    echo "Wrong number of arguments"
+fi
+
+
 # Change this to the position of your monitor in xrandr
 # eg. In my xrandr output it's:
 # eDP-1 <some-other-info>
