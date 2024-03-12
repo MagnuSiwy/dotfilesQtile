@@ -142,7 +142,7 @@ def brightnessControl(qtile):
             height = 0.5,
             **imageDefaults,
             highlight = colors[3],
-            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.5")},
+            mouse_callbacks = {"Button1": lazy.spawn("xrandr --output " + SCREEN_NAME + " --brightness 0.75")},
         ),
         PopupImage(
             filename = "~/.config/qtile/images/circle-half.svg",
