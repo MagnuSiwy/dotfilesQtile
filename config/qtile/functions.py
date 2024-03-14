@@ -13,7 +13,7 @@ from colors import colors
 #----------------------------------------------------------------------------
 
 # Change if you want to choose your own brightness levels for brightness popup 
-# It MUST be a string
+# It MUST be a string. DON'T SET ANYTHING UNDER 0.1. YOU WILL PROBABLY NOT SEE ANYTHING
 
 brightnessLevels = [
     "0.5",
@@ -200,8 +200,10 @@ def center_floating_win(window):
     if wm_name == "Calendar" or wm_name == "Available updates":
         window.toggle_floating()
         window.cmd_set_size_floating(1000, 600)
-    if wm_name == "Telegram":
+    elif wm_name == "Telegram":
         window.cmd_set_size_floating(470, 620)
+    elif wm_name == "League of Legends (TM) Client":
+        window.enable_fullscreen()
 
 
 @hook.subscribe.screen_change

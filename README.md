@@ -1,8 +1,8 @@
-# Dotfiles for Qtile Tiling Window Manager (only for Arch based distros)
-Made to look like Hyprland with the gaming experience (mostly on nvidia laptops) of Xorg. **The config will only work with _Xorg_.**
+# Dotfiles for [Qtile](https://github.com/qtile/qtile/) Tiling Window Manager (only for Arch based distros)
+Made to look like Hyprland with the gaming experience of Xorg (perfect for nvidia laptops). **The config will only work with _Xorg_.**
 
 # Installation
-To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder. Qtile and qtile-extras are NOT included since it's better to use git versions of these packages - the config will NOT work on the official realeses of qtile + qtile-extras. **THIS MEANS YOU HAVE TO INSTALL YAY, QTILE-GIT, QTILE-EXTRAS-GIT AND XORG.SERVER FIRST**. Packages installed with pacman are what you need for most of the functionalities in the system to work + qt6ct and kvantum to change the qt theme. Yay installs mostly some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
+To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder. Qtile and qtile-extras are NOT included since the config is using git versions of these packages - the config will NOT work on the official releases of qtile + qtile-extras. **THIS MEANS YOU HAVE TO INSTALL YAY, QTILE-GIT, QTILE-EXTRAS-GIT AND XORG.SERVER FIRST**. Packages installed with pacman are what you need for most of the functionalities in the system to work + qt6ct and kvantum to change the qt theme. Yay installs mostly some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
 
 If you want to use the released qtile and qtile-extras packages, you have to duplicate the code for the bar to use it on the second monitor. Regular copy and deepcopy are not going to work.
 
@@ -22,19 +22,18 @@ In the _scripts_ folder you will also find `additional_apps.sh` script. This scr
 
 
 # Packages explained (apart from qtile and Xorg):
- - qtile-extras (a package used for widget decorations and power menu)
- - picom (compositor)
- - nitrogen (wallpaper utility)
- - pacman-contrib (needed for checkupdates widget)
- - rofi (dmenu - Roboto Mono Nerd Font needed)
- - dunst (notifications)
- - kitty (terminal)
- - polkit-kde-agent (graphical authentication thingy - can be changed in autostart.sh)
- - nwg-look (GUI to set the GTK theme)
- - flameshot (screenshot utility)
- - calcurse (terminal calendar)
+ - [qtile-extras](https://github.com/elParaguayo/qtile-extras) (a package used for widget decorations and power menu)
+ - [picom](https://github.com/yshui/picom) (compositor)
+ - [rofi](https://github.com/davatorium/rofi) (dmenu - Roboto Mono Nerd Font needed)
+ - [dunst](https://github.com/dunst-project/dunst) (notifications)
+ - [kitty](https://github.com/kovidgoyal/kitty) (terminal)
+ - [polkit-kde-agent](https://github.com/KDE/polkit-kde-agent-1) (graphical authentication thingy - can be changed in autostart.sh)
+ - [nwg-look](https://github.com/nwg-piotr/nwg-look) (GUI to set the GTK theme)
+ - [flameshot](https://github.com/flameshot-org/flameshot) (screenshot utility - you can disable the tray icon in settings)
+ - [calcurse](https://github.com/lfos/calcurse) (terminal calendar)
+ - [blueman](https://github.com/blueman-project/blueman) (GUI for handling bluetooth devices - to disable the tray icon go to View->Plugins and disable StatusIcon)
  - qt6ct, kvantum (GUI's to set the QT theme)
- - blueman (GUI for handling bluetooth devices - for better experience go to View->Plugins and disable StatusIcon)
+ - pacman-contrib (needed for checkupdates widget)
 
 
 # Some additional info
@@ -43,11 +42,13 @@ The bar itself is divided into segments:
  - MIDDLE: Workspaces
  - RIGHT: System Tray, Sound, Bluetooth, WiFi, Battery, Clock
 
-The sound widget opens the _pavucontrol_ app on mouse right click. You can change the volume with mouse scroll and mute the sound with left click. WiFi and bluetooth widgets work similarly. The first one opens _nm-connectino-editor_ on right click and the second one opens _blueman-manager_ on left click.
+The sound widget opens the _pavucontrol_ app on mouse right click. You can change the volume with mouse scroll and mute the sound with left click. WiFi and bluetooth widgets work similarly. The first one opens _nm-connectino-editor_ on right click and the second one opens _blueman-manager_ on left click. Also calendar widget opens _calcurse_ and checkupdates widget opens your terminal with _checkupdates_ program.
 
-Terminal used is Kitty but can be changed to anything else thanks to qtile's guess_terminal().
+There are three widgets that open popups from _qtile-extras_. PowerMenu opens power menu, bluetooth widgets opens a popup with some options and devices, battery widget open brightness options **(Beware that you might have to change one variable in brightness.sh or monitors.sh scripts - Instructions can be found in the files)**.
 
-Hope you like it as a base for your own rice or even as a ready to go config. I'm definitely going to update this config since Xorg is the only option for nvidia laptop gaming now and qtile seems to be a really nice WM
+The terminal I'm using is Kitty but it can be changed to anything else thanks to qtile's guess_terminal(). Not all of the widgets and keybinds might work properly since kitty might have some specific options/arguments used in the config.
+
+Hope you like it as a base for your own rice or even as a ready to go config. I'm trying to update this config regularly since Xorg is the only option that works properly with nvidia laptops for gaming right now.
 
 
 # Themes used:

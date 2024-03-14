@@ -56,7 +56,7 @@ keys = [
 
     Key([mod], "Return", lazy.spawn(defaultApps["terminal"]), desc="Launch the terminal"),
     Key([mod], "f", lazy.spawn(defaultApps["browser"]), desc="Launch the browser"),
-    Key([mod], "e", lazy.spawn(defaultApps["fileMan"]), desc="Launch the file manager"),
+    Key([mod], "e", lazy.spawn(defaultApps["terminal"] + " " + defaultApps["fileMan"]), desc="Launch the file manager"),
     Key([mod, "shift"], "Print", lazy.spawn("flameshot gui"), desc="Choose the part of the screen for a screenshot"),
     Key([mod], "Print", lazy.spawn("flameshot screen"), desc="Screenshot of the entire screen"),
     Key([mod, "control"], "Print", lazy.spawn("flameshot full"), desc="Screenshot of all of the monitors"),
