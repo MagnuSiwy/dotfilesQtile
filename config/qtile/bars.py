@@ -277,7 +277,7 @@ rightWidgets = [
         length = 10,
     ),
     widget.WiFiIcon(
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["network"])},
+        mouse_callbacks = {"Button1": lambda: None, "Button3": lazy.spawn(defaultApps["network"])},
         active_colour = colors[1],
         padding_y = 7,
         **widgetDecorations,
@@ -285,7 +285,7 @@ rightWidgets = [
     widget.Spacer(
         length = -8,
         padding = 0,
-        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["network"])},
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["network"])},
         **widgetDecorations
     ),
     widget.Wlan(
@@ -299,24 +299,16 @@ rightWidgets = [
     widget.Spacer(
         length = 10,
     ),
-    widget.Battery(
-        font = "Font Awesome 6 Free Regular",
-        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
-        not_charging_char = '',
-        charge_char = '',
-        discharge_char = '',
-        full_char = '',
-        empty_char = '',
-        unknown_char = '',
-        format = "{char}",
-        show_short_text = False,
-        **widgetDecorations,
-    ),
     widget.Spacer(
-        length = -10,
-        padding = 0,
+        length = 10,
         mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
         **widgetDecorations
+    ),
+    widget.BatteryIcon(
+        theme_path = "~/.config/qtile/images",
+        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
+        scale = 1.7,
+        **widgetDecorations,
     ),
     widget.Battery(
         format = "{percent: 2.0%}",
