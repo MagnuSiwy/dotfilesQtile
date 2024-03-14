@@ -50,7 +50,7 @@ leftWidgets = [
     widget.TextBox(
         font = "Font Awesome 6 Free Regular",
         fmt = "",
-	    mouse_callbacks={"Button1": lazy.function(powerMenu)},
+	    mouse_callbacks = {"Button1": lazy.function(powerMenu)},
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -59,7 +59,7 @@ leftWidgets = [
     widget.TextBox(
         font = "Font Awesome 6 Free Regular",
         fmt = "",
-	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
+	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -70,7 +70,7 @@ leftWidgets = [
     ),
     widget.Clock(
         format = "%d.%m.%Y",
-	    mouse_callbacks={"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
+	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -257,7 +257,7 @@ rightWidgets = [
     widget.Bluetooth(
         mouse_callbacks = {"Button1": lazy.spawn(defaultApps["bluetooth"])},
         adapter_format = "{name}",
-        default_text = '{num_connected_devices} {connected_devices}',
+        default_text = "{num_connected_devices} {connected_devices}",
         default_show_battery = True,
         opacity = 0.85,
         hide_after = 0.1,
@@ -277,12 +277,23 @@ rightWidgets = [
         length = 10,
     ),
     widget.WiFiIcon(
-        mouse_callbacks={"Button3": lazy.spawn(defaultApps["wifi"])},
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["network"])},
         active_colour = colors[1],
-        show_ssid = True,
-        interface = "wlp4s0",
         padding_y = 7,
-        update_interval = 5,
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -8,
+        padding = 0,
+        mouse_callbacks = {"Button1": lazy.spawn(defaultApps["network"])},
+        **widgetDecorations
+    ),
+    widget.Wlan(
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["network"])},
+        format = "{essid} {percent:2.0%}",
+        disconnected_message = "Disconnected",
+        ethernet_message = "Wired",
+        use_ethernet = True,
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -290,7 +301,7 @@ rightWidgets = [
     ),
     widget.Battery(
         font = "Font Awesome 6 Free Regular",
-        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
+        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
         not_charging_char = '',
         charge_char = '',
         discharge_char = '',
@@ -304,12 +315,12 @@ rightWidgets = [
     widget.Spacer(
         length = -10,
         padding = 0,
-        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
+        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
         **widgetDecorations
     ),
     widget.Battery(
         format = "{percent: 2.0%}",
-        mouse_callbacks={"Button3": lazy.function(brightnessControl)},
+        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
         **widgetDecorations,
     ),
     widget.Spacer(

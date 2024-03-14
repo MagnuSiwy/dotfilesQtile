@@ -15,10 +15,10 @@ mod = "mod4"
 defaultApps = {
     "terminal": guess_terminal(),
     "browser": "firefox",
-    "fileMan": "dolphin",
+    "fileMan": "ranger",
     "calendar": "calcurse",
     "sound": "pavucontrol",
-    "wifi": "nm-connection-editor",
+    "network": "nm-connection-editor",
     "bluetooth": "blueman-manager",
 }
 

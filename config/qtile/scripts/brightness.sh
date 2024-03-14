@@ -2,7 +2,7 @@
 
 if [ "$#" -ne 1 ]
 then
-    echo "Invalid number of parameters"
+    echo "Invalid number of arguments"
     exit 1
 fi
 
