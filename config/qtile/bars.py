@@ -59,18 +59,18 @@ leftWidgets = [
     widget.TextBox(
         font = "Font Awesome 6 Free Regular",
         fmt = "",
-	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
+	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["calendar"])},
         **widgetDecorations,
     ),
     widget.Spacer(
         length = -8,
         padding = 0,
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["calendar"])},
         **widgetDecorations
     ),
     widget.Clock(
         format = "%d.%m.%Y",
-	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + " --title Calendar " + defaultApps["calendar"])},
+	    mouse_callbacks = {"Button3": lazy.spawn(defaultApps["calendar"])},
         **widgetDecorations,
     ),
     widget.Spacer(
