@@ -299,16 +299,17 @@ rightWidgets = [
     widget.Spacer(
         length = 10,
     ),
-    widget.Spacer(
-        length = 10,
-        mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
-        **widgetDecorations
-    ),
     widget.BatteryIcon(
         theme_path = "~/.config/qtile/images",
         mouse_callbacks = {"Button3": lazy.function(brightnessControl)},
         scale = 1.7,
         **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = -10,
+        padding = 0,
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["network"])},
+        **widgetDecorations
     ),
     widget.Battery(
         format = "{percent: 2.0%}",
