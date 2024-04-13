@@ -1,3 +1,8 @@
+[ExtractDialog]
+2 screens: Height=608
+2 screens: Width=1275
+DirHistory[$e]=$HOME/Downloads/tomograf/,$HOME/Downloads/przykladowe_skany/
+
 [General]
 ConfirmClosingMultipleTabs=false
 RememberOpenedTabs=false
@@ -12,6 +17,9 @@ PreviewSize=48
 [KFileDialog Settings]
 Places Icons Auto-resize=false
 Places Icons Static Size=22
+Recent Files[$e]=file:$HOME
+Recent URLs[$e]=file:$HOME/Downloads/tomograf/
+detailViewIconSize=16
 
 [MainWindow]
 MenuBar=Disabled

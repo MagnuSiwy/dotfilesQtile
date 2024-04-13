@@ -53,6 +53,9 @@ floating_layout = layout.Floating(
         Match(wm_class = "whatsdesk"),
         Match(wm_class = "caprine"),
         Match(wm_class = "discord"),
+
+        # Others
+        Match(wm_class = "qalculate-gtk"),
     ],
     **layoutTheme
 )
