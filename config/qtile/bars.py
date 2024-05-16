@@ -115,50 +115,6 @@ leftWidgets = [
 ]
 
 
-secondSpecificWidgets = [
-    widget.CheckUpdates(
-        font = 'Font Awesome 6 Free Regular',
-        distro = 'Arch_checkupdates',
-        display_format = ' ! ',
-        no_update_string = '',
-        update_interval = 30,
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + ' --hold --title "Available updates" checkupdates')},
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = 10,
-    ),
-    widget.WindowName(
-        format = "{name}",
-    ),
-    widget.Spacer(
-        length = bar.STRETCH,
-    ),
-    widget.GroupBox(
-        spacing = 6,
-        padding_x = 5,
-        padding_y = 0,
-        margin_x = 10,
-        fontsize = 14,
-        borderwidth = 0,
-        inactive = colors[1],
-        active = colors[1],
-        block_highlight_text_color = colors[0],
-        this_current_screen_border = colors[2],
-        this_screen_border = colors[2],
-        other_current_screen_border = colors[3],
-        other_screen_border = colors[3],
-        highlight_method = 'block',
-        rounded = True,
-        visible_groups = ["6", "7", "8", "9", "0"],
-        **widgetDecorations,
-    ),
-    widget.Spacer(
-        length = bar.STRETCH,
-    ),
-]
-
-
 mainSpecificWidgets = [
     widget.CheckUpdates(
         font = 'Font Awesome 6 Free Regular',
@@ -208,12 +164,56 @@ mainSpecificWidgets = [
 ]
 
 
+secondSpecificWidgets = [
+    widget.CheckUpdates(
+        font = 'Font Awesome 6 Free Regular',
+        distro = 'Arch_checkupdates',
+        display_format = ' ! ',
+        no_update_string = '',
+        update_interval = 30,
+        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["terminal"] + ' --hold --title "Available updates" checkupdates')},
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = 10,
+    ),
+    widget.WindowName(
+        format = "{name}",
+    ),
+    widget.Spacer(
+        length = bar.STRETCH,
+    ),
+    widget.GroupBox(
+        spacing = 6,
+        padding_x = 5,
+        padding_y = 0,
+        margin_x = 10,
+        fontsize = 14,
+        borderwidth = 0,
+        inactive = colors[1],
+        active = colors[1],
+        block_highlight_text_color = colors[0],
+        this_current_screen_border = colors[2],
+        this_screen_border = colors[2],
+        other_current_screen_border = colors[3],
+        other_screen_border = colors[3],
+        highlight_method = 'block',
+        rounded = True,
+        visible_groups = ["6", "7", "8", "9", "0"],
+        **widgetDecorations,
+    ),
+    widget.Spacer(
+        length = bar.STRETCH,
+    ),
+]
+
+
 rightWidgets = [
     widget.Volume(
         font = "Font Awesome 6 Free Regular",
         emoji = True,
         emoji_list = ['', '', '', ''],
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
+        volume_app = defaultApps["sound"],
         **widgetDecorations,
     ),
     widget.Spacer(
@@ -223,7 +223,9 @@ rightWidgets = [
         **widgetDecorations
     ),
     widget.Volume(
-        mouse_callbacks = {"Button3": lazy.spawn(defaultApps["sound"])},
+        mute_foreground = colors[1] + "90",
+        mute_format = "Muted",
+        volume_app = defaultApps["sound"],
         **widgetDecorations,
     ),
     widget.Spacer(
