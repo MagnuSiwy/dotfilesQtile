@@ -1,6 +1,8 @@
 # Dotfiles for [Qtile](https://github.com/qtile/qtile/) Tiling Window Manager (only for Arch based distros)
 Made to look like Hyprland with the gaming experience of Xorg (perfect for nvidia laptops). **The config will only work with _Xorg_.**
 
+## The dotfiles haven't been updated after Qtile v0.24.0. Some things might not work!!!
+
 # Installation
 To use the dotfiles you need some packages (some of them listed below with a short explanation why you need them). All of the packages can be installed using the `install.sh` script that can be found in the _scripts_ folder. Qtile and qtile-extras are NOT included since the config is using git versions of these packages - the config will NOT work on the official releases of qtile + qtile-extras. **THIS MEANS YOU HAVE TO INSTALL YAY, QTILE-GIT, QTILE-EXTRAS-GIT AND XORG.SERVER FIRST**. Packages installed with pacman are what you need for most of the functionalities in the system to work + qt6ct and kvantum to change the qt theme. Yay installs mostly some additional look related stuff like icon theme, cursor theme and nwg-look which will help you set the GTK theme.
 
